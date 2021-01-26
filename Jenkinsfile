@@ -26,7 +26,7 @@ pipeline{
                     #!/bin/bash
                     REST_API_ID=$(aws apigateway get-rest-apis --query 'items[?starts_with(name,`TestRestApi`)].id')
                     REST_API_ID=$(echo $REST_API_ID | sed 's/[^a-zA-Z0-9]//g')
-                    aws apigateway put-rest-api --cli-binary-format raw-in-base64-out --rest-api-id $REST_API_ID --fail-on-warnings --mode merge --body "file://OpenapiFour.json"
+                    aws apigateway put-rest-api --cli-binary-format raw-in-base64-out --rest-api-id $REST_API_ID --fail-on-warnings --mode merge --body "file://OpenAPIFour.json"
                     '''
             }
         }

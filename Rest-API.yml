@@ -6,6 +6,6 @@ Resources:
     Type: 'AWS::ApiGateway::RestApi'
     Properties:
       Description: A test API
-      Name: MyRestAPI2
+      Name: TestRestApi
       Parameters:
           endpointConfigurationTypes: REGIONAL

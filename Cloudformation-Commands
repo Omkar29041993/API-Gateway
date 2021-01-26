@@ -1,0 +1,18 @@
+//Command to create cloudformation stack
+aws cloudformation create-stack --stack-name Rest-API --template-body file://Rest-API.yml
+
+//Command to update cloudformation stack
+aws cloudformation update-stack --stack-name Rest-API --template-body file://Rest-API.yml
+
+//Command to get rest api ids
+aws apigateway get-rest-apis
+
+//API ids
+5t2bqveh7f
+
+//Command to upload openapi 3.0 file on aws rest-api
+aws apigateway put-rest-api --rest-api-id i9wz9j8ku4 --fail-on-warnings --mode merge --body "file://OpenapiThree.json"
+
+//Error Resolution
+
+aws apigateway put-rest-api --cli-binary-format raw-in-base64-out --rest-api-id s0ont7azid --fail-on-warnings --mode merge --body "file://OpenapiThree.json"

@@ -20,5 +20,14 @@ pipeline{
                 '''
             }
         }
+        stage("Deploy Rest API"){
+            steps{
+                    sh '''
+                    #!/bin/bash
+                    REST_API_ID=$(aws apigateway get-rest-apis --query 'items[?starts_with(name,`MyRestAPI2`)].id')
+                    aws apigateway put-rest-api --cli-binary-format raw-in-base64-out --rest-api-id $REST_API_ID --fail-on-warnings --mode merge --body "file://OpenapiThree.json"
+                    '''
+            }
+        }
     }
 }

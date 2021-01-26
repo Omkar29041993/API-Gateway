@@ -12,7 +12,7 @@ pipeline{
         {
             steps{
                 sh '''
-                aws cloudformation update-stack --stack-name Rest-API --template-body file://Rest-API.yml
+                aws cloudformation create-stack --stack-name Rest-API --template-body file://Rest-API.yml
                 '''
             }
         }

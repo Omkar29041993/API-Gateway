@@ -1,0 +1,38 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"version": "1.0.0",
+		"description": "A simple API to illustrate OpenAPI concepts"
+	},
+	"servers": [{
+		"url": "https://example.io/v1"
+	}],
+	"paths": {
+		"/artists": {
+			"get": {
+				"description": "Returns a list of artists",
+				"responses": {
+					"200": {
+						"description": "Successfully returned a list of artists",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"required": [
+											"username"
+										],
+										"properties": {
+											"artist_name:openapi": "3.0.0"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Your first API with Amazon API Gateway. This is a sample API that integrates via HTTP with our demo Pet Store endpoints",
+      "title": "TestRestApi"
+    },
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "tags": [
+            "pets"
+          ],
+          "description": "PetStore HTML web page containing API usage information",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "text/html"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "headers": {
+                "Content-Type": {
+                  "type": "string",
+                  "description": "Media type of request"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}

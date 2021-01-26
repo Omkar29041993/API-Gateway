@@ -1,13 +1,11 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Cloudformation template for rest-api 
     
-Resources: 
-  TestRestApi:
+Resources:
+  MyRestApi:
     Type: 'AWS::ApiGateway::RestApi'
     Properties:
       Description: A test API
-      EndpointConfiguration:
-        Types:
-          - REGIONAL
-      Name: TestRestApi
-      # BodyS3Location: "s3://openapi-location/OpenapiOne.yml"
+      Name: MyRestAPI2
+      Parameters:
+          endpointConfigurationTypes: REGIONAL

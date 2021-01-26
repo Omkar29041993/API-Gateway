@@ -30,5 +30,12 @@ pipeline{
                     '''
             }
         }
+        stage("Deploy API gateway to Dev Environment"){
+            steps{
+                sh '''
+                aws apigateway create-deployment --region us-east-1 --rest-api-id $REST_API_ID --stage-name dev5
+                '''
+            }         
+        }
     }
 }

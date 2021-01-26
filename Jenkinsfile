@@ -12,7 +12,11 @@ pipeline{
         {
             steps{
                 sh '''
-                aws cloudformation create-stack --stack-name Rest-API --template-body file://Rest-API.yml
+                if aws cloudformation describe-stacks  --query 'Stacks[].StackName' | grep Rest-API ; then
+                    aws cloudformation create-stack --stack-name Rest-API --template-body file://Rest-API.yml
+                else
+                    aws cloudformation update-stack --stack-name Rest-API --template-body file://Rest-API.yml
+                fi
                 '''
             }
         }

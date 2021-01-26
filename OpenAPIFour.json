@@ -1,0 +1,67 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Your first API with Amazon API Gateway. This is a sample API that integrates via HTTP with our demo Pet Store endpoints",
+      "version": "2021-01-26T20:31:51Z",
+      "title": "TestRestApi"
+    },
+    "host": "1yycnji3s2.execute-api.us-east-1.amazonaws.com",
+    "basePath": "/dev2",
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "headers": {
+                "Content-Type": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "x-amazon-apigateway-integration": {
+            "uri": "http://nlb-internal-a6e9e29efdbe3a7b.elb.us-east-1.amazonaws.com",
+            "httpMethod": "GET",
+            "responses": {
+              "default": {
+                "statusCode": "200"
+              }
+            },
+            "passthroughBehavior": "when_no_match",
+            "connectionType": "VPC_LINK",
+            "connectionId": "wsvhwn",
+            "type": "http_proxy"
+          }
+        }
+      }
+    },
+    "x-amazon-apigateway-policy": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": "*",
+          "Action": "execute-api:Invoke",
+          "Resource": "arn:aws:execute-api:us-east-1:737851004174:1yycnji3s2/*"
+        },
+        {
+          "Effect": "Deny",
+          "Principal": "*",
+          "Action": "execute-api:Invoke",
+          "Resource": "arn:aws:execute-api:us-east-1:737851004174:1yycnji3s2/*",
+          "Condition": {
+            "StringNotEquals": {
+              "aws:SourceVpc": "vpc-aae92ed7"
+            }
+          }
+        }
+      ]
+    }
+  }
